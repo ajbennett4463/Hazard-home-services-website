@@ -15,3 +15,9 @@ From this directory, run `python3 -m http.server 8000` and open `http://localhos
 5. Link the live public website from Google Business Profile after it resolves over HTTPS.
 
 The client form has required fields and helpful errors. Formspree handles the actual message delivery and spam filtering; no customer data is stored in this static site. Do not add secrets to `config.js`.
+
+## Gallery and About Us photos
+
+Photos are managed by Andy and Kenny in the internal app’s **Website** tab. Upload a draft, enter its caption and image description, review the preview, then Publish. Gallery display order is editable. The separate About Us section publishes one photo at a time. Visitors see updates on page refresh without a website rebuild.
+
+`config.js` contains the public Supabase client configuration. `website-media.js` reads published records only and downloads images from the private `hazard-website` bucket using RLS. It does not access private job files. The logo/coming-soon placeholders remain if no photos are published or the photo service is unavailable. Public keys are expected in client code; never add a service-role key.

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="brand.css" />
+    <link rel="stylesheet" href="website-media.css" />
     <link rel="canonical" href="https://hazardhomeservices.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Hazard Home Services | Make it happen at home" />
@@ -22,6 +23,7 @@
       {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Hazard Home Services","url":"https://hazardhomeservices.com/","email":"hazardhomeservices@gmail.com","logo":"https://hazardhomeservices.com/assets/logo-web.png","areaServed":[{"@type":"AdministrativeArea","name":"Johnson County, Indiana"},{"@type":"AdministrativeArea","name":"Marion County, Indiana"},{"@type":"AdministrativeArea","name":"Shelby County, Indiana"},{"@type":"AdministrativeArea","name":"Brown County, Indiana"},{"@type":"AdministrativeArea","name":"Morgan County, Indiana"}],"description":"Residential repairs, property maintenance, light renovation, demolition, and debris hauling."}
     </script>
     <script defer src="config.js"></script>
+    <script defer src="website-media.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -71,13 +73,14 @@
 
       <section class="section section-work" id="work" aria-labelledby="work-title">
         <div class="container work-layout">
-          <div class="work-copy"><p class="eyebrow">02 / OUR WORK</p><h2 id="work-title">Proof is in<br /><em>the projects.</em></h2><p>We’re building our project gallery as Hazard gets underway. Check back for real before-and-after photos, details, and the stories behind the work.</p><a class="button button-outline" href="#request">Have a project for us? <span aria-hidden="true">↗</span></a></div>
-          <div class="gallery-preview" aria-label="Project gallery coming soon"><div class="gallery-primary"><span class="gallery-cross">✳</span><span class="gallery-label">PROJECT GALLERY<br /><strong>COMING SOON</strong></span></div><div class="gallery-side"><span>REAL WORK.<br />REAL RESULTS.</span><span class="gallery-arrow" aria-hidden="true">↗</span></div></div>
+          <div class="work-copy"><p class="eyebrow">02 / OUR WORK</p><h2 id="work-title">Proof is in<br /><em>the projects.</em></h2><p id="gallery-intro">We’re building our project gallery as Hazard gets underway. Check back for real before-and-after photos, details, and the stories behind the work.</p><a class="button button-outline" href="#request">Have a project for us? <span aria-hidden="true">↗</span></a></div>
+          <div id="website-gallery" class="public-gallery" hidden aria-label="Our project photos"></div>
+          <div id="gallery-placeholder" class="gallery-preview" aria-label="Project gallery coming soon"><div class="gallery-primary"><span class="gallery-cross">✳</span><span class="gallery-label">PROJECT GALLERY<br /><strong>COMING SOON</strong></span></div><div class="gallery-side"><span>REAL WORK.<br />REAL RESULTS.</span><span class="gallery-arrow" aria-hidden="true">↗</span></div></div>
         </div>
       </section>
 
       <section class="section section-about" id="about" aria-labelledby="about-title">
-        <div class="container about-grid"><div class="about-mark"><img src="assets/icon.svg" alt="" width="240" height="240" loading="lazy" /><span>LOCAL PEOPLE.<br />PRACTICAL SOLUTIONS.</span></div><div class="about-copy"><p class="eyebrow dark">03 / ABOUT HAZARD</p><h2 id="about-title">A local team that<br /><em>shows up for the work.</em></h2><p>Hazard Home Services is owned by Andy and Kenny. We started the business to help neighbors take care of the repairs, improvements, and cleanup projects that keep a property moving forward.</p><p>We’ll listen to what you need, talk through the job, and provide a clear path for the next step.</p><a class="text-link dark-link" href="#request">Get to know us through a project <span aria-hidden="true">↗</span></a></div></div>
+        <div class="container about-grid"><figure id="website-about-photo" class="public-about-photo" hidden></figure><div id="about-placeholder" class="about-mark"><img src="assets/icon.svg" alt="" width="240" height="240" loading="lazy" /><span>LOCAL PEOPLE.<br />PRACTICAL SOLUTIONS.</span></div><div class="about-copy"><p class="eyebrow dark">03 / ABOUT HAZARD</p><h2 id="about-title">A local team that<br /><em>shows up for the work.</em></h2><p>Hazard Home Services is owned by Andy and Kenny. We started the business to help neighbors take care of the repairs, improvements, and cleanup projects that keep a property moving forward.</p><p>We’ll listen to what you need, talk through the job, and provide a clear path for the next step.</p><a class="text-link dark-link" href="#request">Get to know us through a project <span aria-hidden="true">↗</span></a></div></div>
       </section>
 
       <section class="section section-area" id="area" aria-labelledby="area-title"><div class="container area-grid"><div><p class="eyebrow">04 / WHERE WE WORK</p><h2 id="area-title">Based in Johnson County.<br /><em>Ready to go farther.</em></h2><p>Our home base is Johnson County. We also serve surrounding communities across greater Indianapolis. Tell us where your project is and we’ll confirm availability.</p></div><div class="county-list" aria-label="Service counties"><span class="county-featured">JOHNSON COUNTY <small>HOME BASE</small></span><span>MARION COUNTY</span><span>SHELBY COUNTY</span><span>BROWN COUNTY</span><span>MORGAN COUNTY</span></div></div></section>
