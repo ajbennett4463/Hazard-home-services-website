@@ -29,3 +29,7 @@ The current customer Worker is `hazard-home-services-website`. Its static-asset 
 For direct deployment from an authorized computer: `npx wrangler@4.136.3 login`, then `npx wrangler@4.136.3 deploy` from this repository. Never commit Cloudflare tokens.
 
 Photo display tests: install `linkedom` in your test tooling, then run `node tests/website-media.test.cjs`. Database access tests live in the internal app repository at `supabase/tests/website_media.sql`.
+
+## Before and after projects
+
+Owners manage sets through the internal app’s Website tab or a job’s Before & after photos action. The public gallery presents published sets with labeled Before and After sides, independent previous/next photo controls, counters and enlarged previews. Multiple photos per side are supported. On small screens the two sides stack. Draft sets and related job IDs are not exposed. If either side cannot load, the comparison is omitted rather than showing a misleading half-complete result. Publishing and unpublishing do not require a site rebuild.
