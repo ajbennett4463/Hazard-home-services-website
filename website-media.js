@@ -2,7 +2,9 @@
   const config=window.HAZARD_SITE_CONFIG||{};
   if(!config.supabaseUrl||!config.supabaseKey)return;
   const base=config.supabaseUrl.replace(/\/$/,'');
-  const headers={apikey:config.supabaseKey,Authorization:`Bearer ${config.supabaseKey}`};
+  const headers={apikey:config.supabaseKey};
+  // Legacy anon JWTs also support Authorization; publishable keys belong only in apikey.
+  if(!config.supabaseKey.startsWith('sb_publishable_'))headers.Authorization=`Bearer ${config.supabaseKey}`;
   const urls=[];
   window.addEventListener('pagehide',()=>urls.forEach(url=>URL.revokeObjectURL(url)));
   async function photoUrl(photo){
@@ -31,7 +33,8 @@
       // A missing image never replaces the existing attractive placeholder.
       await Promise.all(photos.map(async photo=>{
         try{
-          const url=await photoUrl(photo),image=document.createElement('img');image.src=url;image.alt=photo.alt_text;image.loading='lazy';image.decoding='async';
+          const url=await photoUrl(photo),image=document.createElement('img');image.src=url;image.alt=photo.alt_text;image.decoding='async';
+          // Decode the fetched blob eagerly before inserting it. A detached lazy image can stall forever.
           await image.decode();
           if(photo.kind==='about'){
             const about=document.getElementById('website-about-photo');if(!about)return;
