@@ -155,6 +155,12 @@
         const response = await fetch(`${base}/rest/v1/website_photo_sets?select=id,title,caption,sort_order,created_at&published=eq.true&order=sort_order.asc,created_at.asc`, { headers, cache: 'no-store' });
         if (response.ok) { const rows = await response.json(); if (Array.isArray(rows)) sets = rows.filter(row => row.id && row.title); }
       } catch {}
+      await each(photos.filter(photo => photo.kind === 'hero' && !photo.set_id).slice(0, 1), async photo => {
+        try { const img = image(photo, await photoUrl(photo)); await img.decode();
+          const target = document.getElementById('website-hero-photo'); if (!target || window.HAZARD_PREVIEW_HERO) return;
+          target.replaceChildren(img); target.hidden = false; document.getElementById('hero-placeholder').hidden = true;
+        } catch {} // Retain original artwork when the photo is unavailable.
+      });
       await each(photos.filter(photo => photo.kind === 'about' && !photo.set_id).slice(0, 1), async photo => {
         const img = image(photo, await photoUrl(photo)); await img.decode();
         const about = document.getElementById('website-about-photo'); if (!about) return;

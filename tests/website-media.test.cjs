@@ -92,3 +92,10 @@ test('empty, offline and incomplete comparisons retain useful fallback',async()=
  const {document:d}=await setup(photos,sets,false,'after-1.jpg');
  assert.equal(d.querySelectorAll('.project-card').length,1,'Never render a half-loaded comparison');
 });
+test('homepage photo replaces artwork without entering gallery',async()=>{
+ const {document:d}=await setup([{kind:'hero',object_path:'hero/owners.jpg',alt_text:'Andy and Kenny at work'}],[]);
+ assert.equal(d.querySelector('#website-hero-photo').hidden,false);
+ assert.equal(d.querySelector('#website-hero-photo img').alt,'Andy and Kenny at work');
+ assert.equal(d.querySelector('#hero-placeholder').hidden,true);
+ assert.equal(d.querySelector('#website-gallery').hidden,true);
+});
